@@ -1,0 +1,23 @@
+<% layout("layout/boilerplate") %>
+<div class="beer-info">
+  <img class="beer-logo img-fluid" src="<%= beer.image%> " alt="img-logo" />
+  <div class="row">
+    <div class="beer-info col-6">
+      <h1><%= beer.name %></h1>
+      
+      <h4>Style: <%= beer.style %></h4>
+      <h4>ABV: <%= beer.abv %> %</h4>
+      <h4 class="card-text">Produced by <a class="brewery-name" href="/breweries/<%= beer.brewery._id %> "
+        ><%= beer.brewery.name %></h4></a>
+      <p><%= beer.description %></p>
+    </div>
+  </div>
+  <div class="edit-delete-buttons">
+    <a href="/beers/<%= beer._id %>/edit"
+      ><button class="btn btn-primary">Edit Beer</button></a
+    >
+    <form action="/beers/<%= beer._id %>/delete?_method=DELETE" method="POST">
+      <button class="btn btn-danger" type="submit">Delete Beer</button>
+    </form>
+  </div>
+</div>

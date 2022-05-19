@@ -1,0 +1,45 @@
+<% layout("layout/boilerplate") %>
+<h1 class="main-heading">Add a new Beer</h1>
+<div class="form-brewery">
+<form action="/breweries/<%= id %>/beers/add" method="POST">
+    <div class="form-item">
+        <input type="text" name="name" id="name" autocomplete="off" required />
+        <label for="name">
+          <span class="form-item-name">Beer Name</span></label
+        >
+      </div>
+      <div class="form-item">
+        <input type="text" name="style" id="style" autocomplete="off" required />
+        <label for="style">
+          <span class="form-item-name">Beer Style</span></label
+        >
+      </div>
+      <div class="form-item">
+        <input type="text" name="abv" id="abv" autocomplete="off" required />
+        <label for="abv">
+          <span class="form-item-name">% ABV</span></label
+        >
+      </div>
+      <div class="form-item textarea-item">
+        <textarea
+          name="description"
+          id="description"
+          cols="50"
+          rows="150"
+          onInput="this.parentNode.dataset.replicatedValue = this.value"
+          required
+        ></textarea>
+        <label for="description">
+          <span class="form-item-name">Description</span></label
+        >
+      </div>
+      <div class="form-item">
+        <input type="text" name="image" id="image" required />
+        <label for="imgae"><span class="form-item-name">Image</span></label>
+      </div>
+      <button class="btn btn-primary submitButton" type="submit">Add Beer</button>
+    <a href="/breweries"
+      ><button class="btn btn-danger" type="button">Cancel</button></a
+    >     
+</div>
+</form>

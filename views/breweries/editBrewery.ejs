@@ -1,0 +1,41 @@
+<%- layout("layout/boilerplate") %> 
+<h1 class="main-heading">Edit Brewery</h1>
+<div class="form-brewery">
+  <form action="/breweries/<%= brewery._id%>/edit?_method=PUT" method="POST" class="form-validation">
+    <div class="form-item">
+      <input type="text" name="name" id="name" value="<%= brewery.name %>" required/>
+      <label for="name"> <span class="form-item-name">Brewery Name</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="founded" id="founded" value="<%= brewery.founded %>" required/>
+      <label for="founded"> <span class="form-item-name">Year Founded</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="city" id="city" value="<%= brewery.city %>" required/>
+      <label for="city"> <span class="form-item-name">City</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="country" id="country" value="<%= brewery.country %>" required/>
+      <label for="country"> <span class="form-item-name">Country</span></label>
+    </div>
+    <div class="form-item textarea-item">
+      <textarea
+        name="description"
+        id="description"
+        cols="50"
+        rows="100"
+      ><%= brewery.description %></textarea>
+      <label for="description"> <span class="form-item-name">Description</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="logo_path" id="logo_path" value="<%= brewery.logo_path %>" required/>
+      <label for="logo_path"><span class="form-item-name">Logo URL</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="website" id="website" value="<%= brewery.website %>" required/>
+      <label for="website"><span class="form-item-name">Website</span></label>
+    </div>
+    <button class="btn btn-primary submitButton" type="submit">Save</button>
+    <a href="/breweries/<%= brewery._id %> "><button class="btn btn-danger" type="button">Cancel</button></a>
+  </form>    
+</div>

@@ -1,0 +1,232 @@
+:root {
+  --form-text: rgba(1, 20, 12, 0.61);
+  --bname-text: rgb(163, 0, 46);
+}
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #fae96f;
+}
+
+button {
+  margin: 0.3em;
+}
+
+.main-heading {
+  text-align: center;
+  padding: 1em 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Breweries Index */
+.brewery-card {
+  background-color: #f6c1012a;
+  border: none;
+  margin-bottom: 1em;
+  padding: 1em;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+
+/* BREWERY PAGE */
+.brewery-logo {
+  margin: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 230px;
+  background-color: inherot;
+}
+
+.brewery-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brewery-location  {
+  display: flex;
+  justify-content: center;
+}
+
+.brewery-location img {
+  height: 400px;
+}
+
+.edit-delete-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.beers {
+  display: flex;
+}
+
+.beer-card {
+  padding: 1em;
+  text-align: center;
+  line-height: 0.3;
+}
+
+.beer-name {
+  color: var(--bname-text);
+  font-weight: bold;
+}
+
+.image-beer {
+  width: 150px;
+  height: 150px;
+  padding-bottom: 1em;
+}
+
+
+
+/* ADD/EDIT BREWERY */
+.form-brewery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 60vh;
+  width: 30em;
+  margin: 0 auto 2em;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  padding-bottom: 2em;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+}
+
+.form-item label {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid black;
+  pointer-events: none;
+}
+
+.form-item label::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid rgb(0, 0, 0);
+  left: 0;
+  bottom: -1px;
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+  
+}
+
+.form-item-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transition: all 0.3 ease;
+}
+
+.form-item input {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  border: none;
+  outline: none;
+  background-color: inherit;
+}
+
+/* https://www.youtube.com/watch?v=IxRJ8vplzAo&ab_channel=DevEd */
+.form-item input:focus + label .form-item-name,
+.form-item input:valid + label .form-item-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: var(--form-text);
+  
+}
+
+.form-item input:focus + label::after,
+.form-item input:valid + label::after {
+  transform: translate(0%);
+}
+
+.form-item textarea {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: inherit;
+}
+
+.textarea-item {
+  height: 200px;
+}
+
+.form-item textarea:focus + label .form-item-name,
+.form-item textarea:valid + label .form-item-name {
+  transform: translateY(-850%);
+  font-size: 14px;
+  color: var(--form-text);
+}
+
+.form-item textarea:focus + label::after,
+.form-item textarea:valid + label::after {
+  transform: translate(0%);
+}
+
+/* beers.ejs */
+.beer-info {
+  margin: 2em auto;
+  text-align: center;
+} 
+
+.brewery-name {
+  color: rgb(163, 0, 46);
+  font-weight: 600;
+}
+/*Beer index */
+.beer-type-index {
+  text-align: center;
+}
+
+.beer-type-index a {
+  margin: 0 0.5em;
+}
+
+
+.beer-name {
+  color: var(--bname-text);
+  font-weight: 600;
+}
+
+.beer-logo {
+  width: 400px;
+}
+
+/* // FORMS SCRIPT */
+.form-error span {
+  color: red;
+}

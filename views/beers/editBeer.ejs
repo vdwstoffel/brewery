@@ -1,0 +1,34 @@
+<%- layout("layout/boilerplate") %> 
+<h1 class="main-heading">Edit beer</h1>
+<div class="form-brewery">
+  <form action="/beers/<%= beer._id%>/edit?_method=PUT" method="POST" class="form-validation">
+    <div class="form-item">
+      <input type="text" name="name" id="name" value="<%= beer.name %>" required/>
+      <label for="name"> <span class="form-item-name">Beer Name</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="style" id="style" value="<%= beer.style %>" required/>
+      <label for="style"> <span class="form-item-name">Style</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="abv" id="abv" value="<%= beer.abv %>" required/>
+      <label for="city"> <span class="form-item-name">Abv %</span></label>
+    </div>
+    <div class="form-item textarea-item">
+      <textarea
+        name="description"
+        id="description"
+        cols="50"
+        rows="100"
+        required
+      ><%= beer.description %></textarea>
+      <label for="description"> <span class="form-item-name">Description</span></label>
+    </div>
+    <div class="form-item">
+      <input type="text" name="image" id="image" value="<%= beer.image %>" required/>
+      <label for="image"><span class="form-item-name">Logo URL</span></label>
+    </div>
+    <button class="btn btn-primary submitButton" type="submit">Save</button>
+    <a href="/beers/<%= beer._id %>"><button class="btn btn-danger" type="button">Cancel</button></a>
+  </form>    
+</div>
