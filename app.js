@@ -6,6 +6,7 @@ const path = require("path");
 const methodOverride = require("method-override");
 const engine = require("ejs-mate");
 const morgan = require("morgan");
+require("dotenv").config()
 const Brewery = require("./models/breweryModel");
 const Beer = require("./models/beerModel");
 const AppError = require("./utilities/AppError");
@@ -23,8 +24,9 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Database
+//TODO: Connected to live database. Implement a live/local database
 mongoose
-  .connect("mongodb://localhost:27017/breweriesDB")
+.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.7aons.mongodb.net/beerDB?retryWrites=true&w=majority`)
   .then(() => {
     console.log("MongoDB Connected");
   })

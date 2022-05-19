@@ -1,12 +1,13 @@
 "use strict";
 
 const mongoose = require("mongoose");
+require("dotenv").config()
 const Brewery = require("../models/breweryModel");
 const Beer = require("../models/beerModel");
 const seeds = require("./seedsData");
 
 mongoose
-  .connect("mongodb://localhost:27017/breweriesDB")
+.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.7aons.mongodb.net/beerDB?retryWrites=true&w=majority`)
   .then(() => {
     console.log("SeedsDb Connected");
   })
