@@ -17,6 +17,7 @@ const BrewerySchema = new Schema({
   beers: [{ type: Schema.Types.ObjectId, ref: "Beer" }],
 });
 
+//If the brewery model is deleted deleted all the beer it is linked to
 BrewerySchema.post("findOneAndDelete", async function (brewery) {
   if (brewery.beers.length) {
     const output = await Beer.deleteMany({_id: {$in: brewery.beers}})

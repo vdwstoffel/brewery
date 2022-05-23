@@ -197,16 +197,6 @@ a {
   transform: translate(0%);
 }
 
-/* beers.ejs */
-.beer-info {
-  margin: 2em auto;
-  text-align: center;
-} 
-
-.brewery-name {
-  color: rgb(163, 0, 46);
-  font-weight: 600;
-}
 /*Beer index */
 .beer-type-index {
   text-align: center;
@@ -226,7 +216,38 @@ a {
   width: 400px;
 }
 
+/* beers.ejs */
+.beer-info {
+  margin: 2em auto;
+  text-align: center;
+} 
+
+.brewery-name {
+  color: rgb(163, 0, 46);
+  font-weight: 600;
+}
+
+.review-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 0.5em;
+}
+
+.beer-review, .beer-rating {
+  margin: 0.5em;
+}
+
+.textarea-item-beer-review {
+  height: 210px;
+}
+
 /* // FORMS SCRIPT */
 .form-error span {
   color: red;
 }
+
+
+
+

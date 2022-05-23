@@ -11,5 +11,10 @@ module.exports.addBrewerySchema = Joi.object({
 module.exports.addBeerSchema = Joi.object({
   name: Joi.string().required(),
   style: Joi.string().required(),
-  abv: Joi.number().required()
-})
+  abv: Joi.number().required(),
+});
+
+module.exports.addReviewSchema = Joi.object({
+  rating: Joi.number().min(0).max(5).required(),
+  review: Joi.string().required(),
+});
