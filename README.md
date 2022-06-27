@@ -1,10 +1,1 @@
-# FONTS USED
-FONTS: <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-body {
-    font-family: 'Roboto', sans-serif;
-}# beerDatabase
-# beerDatabase
-# beerDatabase
+# A database to capture all the breweries/brands and all the related beers. There is also some basic information on both breweries/beers as well as a rating system.

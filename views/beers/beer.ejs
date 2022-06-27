@@ -1,17 +1,22 @@
 <% layout("layout/boilerplate") %>
+<%- include("../partials/flash") %> 
 <div class="beer-info">
-  <img class="beer-logo img-fluid" src="<%= beer.image%> " alt="img-logo" />
-  <div class="row">
-    <div class="beer-info col-6">
-      <h1><%= beer.name %></h1>
-      <h4>Style: <%= beer.style %></h4>
-      <h4>ABV: <%= beer.abv %> %</h4>
-      <h4 class="card-text">Produced by <a class="brewery-name" href="/breweries/<%= beer.brewery._id %> "
-        ><%= beer.brewery.name %></h4></a>
-      <p><%= beer.description %></p>
+  <div class="row beer-info-img">
+    <div class="col-md-6 col-sm-12">
+      <img class="beer-logo img-fluid" src="<%= beer.image%> " alt="img-logo" />
     </div>
+  <div class="col-md-6 col-sm-12">
+      <div class="beer-info beer-details">
+        <h1><%= beer.name %></h1>
+        <h4>Style: <%= beer.style %></h4>
+        <h4>ABV: <%= beer.abv %> %</h4>
+        <h4 class="card-text">Produced by <a class="brewery-name" href="/breweries/<%= beer.brewery._id %> "
+          ><%= beer.brewery.name %></h4></a>
+        <p><%= beer.description %></p>
+      </div>
   </div>
-
+</div>
+<% if (currentUser) { %>
   <div class="edit-delete-buttons">
     <a href="/beers/<%= beer._id %>/edit"
       ><button class="btn btn-primary">Edit Beer</button></a
@@ -20,37 +25,47 @@
       <button class="btn btn-danger" type="submit">Delete Beer</button>
     </form>
   </div>
-  <hr>
-  <h2>Leave a review</h2>
-  <form action="/beers/<%= beer._id %>/reviews" method="POST">
-    <div class="rating"><fieldset>
-      <span class="star-cb-group">
-        <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
-        <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
-        <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
-        <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
-        <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
-        <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
-      </span>
-    </fieldset></div>
-    <div class="form-item textarea-item-beer-review">
-      <textarea name="review" id="review" cols="50" rows="150" onInput="this.parentNode.dataset.replicatedValue = this.value" required></textarea>
-      <label class="form-label" for="review"><span class="form-item-name">Review</span></label>
-    </div>
-    <button class="btn btn-primary">Submit</button>
-  </form>
+<% } %>
   <hr>
   <h2>Reviews</h2>
-  <div class="reviews">
-    <% for( let review of beer.reviews ) { %>
-      <div class="review-card">
-        <p class="beer-review"><%= review.review %></p>
-        <p class="beer-rating"><%= review.rating %>/5</p>
-        <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
-          <input type="hidden" value="<%= beer._id %>" name="beerId">
-          <button class="btn btn-sm btn-danger">X</button>
-        </form>
-      </div>
-    <% } %> 
+  <div class="container">
+    <div class="row">
+      <% for( let review of beer.reviews ) { %>
+        <div class="card col-6 beer-review" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= review.rating %>/5</h5>
+            <p class="card-text"><%= review.review %></p>
+            <p class="card-text"><%= review.user  %> </p>
+            <% if (currentUser && review.user.equals(currentUser._id)) {%> 
+            <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+              <input type="hidden" value="<%= beer._id %>" name="beerId">
+              <button class="btn btn-sm btn-danger">X</button>
+            </form>
+            <% } %> 
+          </div>
+        </div>
+      <% } %>
+    </div>
   </div>
+  <hr>
+  <% if (currentUser) { %>
+    <h2>Leave a review</h2>
+    <form action="/beers/<%= beer._id %>/reviews" method="POST">
+      <div class="rating"><fieldset>
+        <span class="star-cb-group">
+          <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
+          <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
+          <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
+          <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
+          <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
+          <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+        </span>
+      </fieldset></div>
+      <div class="form-item textarea-item-beer-review col-6">
+        <textarea name="review" id="review" cols="50" rows="150" onInput="this.parentNode.dataset.replicatedValue = this.value" required></textarea>
+        <label class="form-label" for="review"><span class="form-item-name">Review</span></label>
+      </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  <% } %>
 </div>

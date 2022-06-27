@@ -1,35 +1,43 @@
 <% layout("layout/boilerplate") %>
 <img class="brewery-logo" src="<%= brewery.logo_path %> " alt="img-logo" />
 <div class="row">
-  <div class="brewery-info col-6">
+  <div class="brewery-info col-lg-6 col-md-12">
     <h1><%= brewery.name %></h1>
     <h3 class="year-found">Founded: <%= brewery.founded %></h3>
     <h3>Location: <%= brewery.city %>, <%= brewery.country %></h3>
     <p><%= brewery.description %></p>
     <a href="<%= brewery.website %>">Visit website</a>
   </div>
-  <div class="brewery-location col-6">
+  <div class="brewery-location col-lg-6 col-md-12">
     <img src="https://i.stack.imgur.com/WHCGy.png" alt="" />
   </div>
 </div>
-<div class="edit-delete-buttons">
-  <a href="/breweries/<%= brewery._id %>/edit"
-    ><button class="btn btn-primary">Edit Brewery</button></a
-  >
-  <form action="/breweries/<%= brewery._id %>/delete?_method=DELETE" method="POST">
-    <button class="btn btn-danger" type="submit">Delete Brewery</button>
-  </form>
-</div>
+<% if (currentUser) { %>
+  <div class="edit-delete-buttons">
+    <a href="/breweries/<%= brewery._id %>/edit"
+      ><button class="btn btn-primary">Edit Brewery</button></a
+    >
+    <form action="/breweries/<%= brewery._id %>/delete?_method=DELETE" method="POST">
+      <button class="btn btn-danger" type="submit">Delete Brewery</button>
+    </form>
+  </div>
+<% } %>
+
+<%- include("../partials/flash") %> 
 <h3>Discover Beers</h3>
-<a href="/breweries/<%= brewery._id %>/beers/add"><button class="btn btn-primary">Add Beer</button></a>
+<% if (currentUser) { %>
+  <a href="/breweries/<%= brewery._id %>/beers/add"><button class="btn btn-primary">Add Beer</button></a>
+<% } %>
 <hr>
-<div class="beers">
+<div class="container beers">
+  <div class="row">
   <% for (beer of brewery.beers) { %>
-  <div class="beer-card">
+  <div class="beer-card col">
     <img class="image-beer" src="<%= beer.image %> " alt="image of beer" />
     <a class="beer-name" href="/beers/<%= beer._id %>"><p><%= beer.name %></p></a>
     <p><%= beer.style %> </p>
     <p><%= beer.abv %> %</p>
   </div>
   <% } %>
+</div>
 </div>

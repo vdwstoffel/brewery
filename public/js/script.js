@@ -1,5 +1,9 @@
 "use strict";
 
+//Copyright
+const copyrightYear = document.querySelector(".copyright-year");
+copyrightYear.textContent = new Date().getFullYear()
+
 //TODO: Add custom sign when the form fails and what needs to be done
 //Add Brewery Form
 const submitButton = document.querySelector(".submitButton");

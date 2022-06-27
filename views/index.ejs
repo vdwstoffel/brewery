@@ -1,0 +1,7 @@
+<% layout("layout/boilerplate") %> 
+<%- include("./partials/flash") %> 
+<h1 class="main-heading">Future Home Page</h1>
+<% if (currentUser) { %>
+    <h4>Hi <%= currentUser.username %>!</h4>
+<% } %>
+

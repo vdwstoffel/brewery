@@ -27,13 +27,30 @@ a {
   color: inherit;
 }
 
+.alert {
+  width: 30%;
+  margin: 1em auto;
+}
+
+@media (max-width:375px) {
+  .alert {
+    width: 100%;
+    margin: 1em auto;
+  }
+}
+
 /* Breweries Index */
 .brewery-card {
-  background-color: #f6c1012a;
   border: none;
   margin-bottom: 1em;
   padding: 1em;
   text-align: center;
+  background-color: inherit;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+
+.brewery-card:hover {
+  background-color: #f6c1012a;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -217,37 +234,60 @@ a {
 }
 
 /* beers.ejs */
+.beer-info-img {
+  margin-bottom: 3em;
+}
+
 .beer-info {
   margin: 2em auto;
   text-align: center;
 } 
+
+.beer-details {
+  text-align: left;
+}
+
+@media (max-width: 766px) {
+  .beer-details {
+    text-align: center;
+  }
+}
 
 .brewery-name {
   color: rgb(163, 0, 46);
   font-weight: 600;
 }
 
-.review-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.beer-review {
+  background-color: inherit;
+  border: none;
   margin: 0.5em;
-}
-
-.beer-review, .beer-rating {
-  margin: 0.5em;
-}
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+} 
 
 .textarea-item-beer-review {
   height: 210px;
+  margin: 0 auto;
+}
+
+/* LOGIN/REGISTER PAGE */
+.login-form {
+  width: 40%;
+  margin: 3em auto;
+}
+
+@media (max-width:375px) {
+  .login-form {
+    width: 100%;
+    margin: 3em auto;
+  }
+}
+
+.btn-login {
+  margin: 1 50%;
 }
 
 /* // FORMS SCRIPT */
 .form-error span {
   color: red;
 }
-
-
-
-

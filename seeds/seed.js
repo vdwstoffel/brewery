@@ -7,9 +7,14 @@ const Beer = require("../models/beerModel");
 const seeds = require("./seedsData");
 
 mongoose
-.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.7aons.mongodb.net/beerDB?retryWrites=true&w=majority`)
+  .connect(
+    //Live DB
+    // `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.7aons.mongodb.net/beerDB?retryWrites=true&w=majority`
+    //Local Db
+    "mongodb://localhost:27017/breweriesDB"
+  )
   .then(() => {
-    console.log("SeedsDb Connected");
+    console.log("MongoDB Connected");
   })
   .catch((err) => {
     console.log(err);

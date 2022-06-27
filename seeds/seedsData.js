@@ -107,6 +107,15 @@ module.exports.breweries = [
       "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/Robinsons_Brewery_logo.svg/1200px-Robinsons_Brewery_logo.svg.png",
     website: "robinsonsbrewery.com",
   },
+    {
+        name: "Velkopopovický Kozel",
+        founded: 1874,
+        city: " Velké Popovice",
+        country: "Czech Republic",
+        description: "Velkopopovický Kozel is a Czech lager produced since 1874. The brewery was founded in Velké Popovice, a town 25 km (15 mi) southeast of Prague. Their symbol is a goat (Kozel means \"male goat\" in Czech). The company was bought by SABMiller in 2002 and sold to Asahi Breweries in 2016.",
+        logo_path: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Velkopopovick%C3%BD_Kozel_logo.svg/1920px-Velkopopovick%C3%BD_Kozel_logo.svg.png",
+        website: "http://www.kozelbeer.com"
+    }
 ];
 
 module.exports.beers = [
@@ -197,4 +206,12 @@ module.exports.beers = [
       "https://halftimebeverage.com/media/catalog/product/cache/406910956a4e477188a661c40dcd3999/1/1/11636.png",
     brewery: "Robinsons Brewery",
   },
+  {
+    name: "Kozel Premium Lager",
+    style: "Lager",
+    abv: 4.6,
+    description: "Kozel Premium is the most popular Czech beer in the world! Kozel Premium is made with three selected malts and the aromatic Czech hop Premiant for a well-balanced taste, welcome bitterness and full body.",
+    image: "https://www.birraperoni.it/wp-content/uploads/2021/06/Kozel-Premium-Lager.png",
+    brewery: "629e4931f6515e1230e9e3f0"
+}
 ];

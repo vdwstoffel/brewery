@@ -1,14 +1,14 @@
 <% layout("layout/boilerplate") %>
 <h1 class="main-heading">List of Breweries</h1>
-
+<%- include("../partials/flash") %> 
 <div class="container">
   <div class="row">
     <% for( let brewery of breweries ) { %>
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-3 col-md-12">
       <div class="card brewery-card">
         <img
           src="<%= brewery.logo_path %> "
-          class="card-img-top brewery-logo"
+          class="card-img-top brewery-logo img-fluid"
           alt="logo-img"
         />
         <div class="card-body">

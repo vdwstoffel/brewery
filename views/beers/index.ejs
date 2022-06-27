@@ -1,5 +1,4 @@
 <% layout("layout/boilerplate") %>
-
 <!-- Display Function to display the beers in sections -->
 <% displayBeer = function(style) { %>
     <% for( let beer of beers ) { %>
@@ -8,7 +7,7 @@
               <div class="card brewery-card">
                 <img
                   src="<%= beer.image %> "
-                  class="card-img-top brewery-logo"
+                  class="card-img-top brewery-logo img-fluid"
                   alt="logo-img"
                 />
                 <div class="card-body beer-card">
@@ -29,6 +28,7 @@
 <!-- END OF FUNCTION -->
 
 <h1 class="main-heading">List of Beers</h1>
+<%- include("../partials/flash") %>
 <div class="beer-type-index">
 <% styles.forEach((style) => { %>
 <a href="#<%= style %>"><%= style %> </a>

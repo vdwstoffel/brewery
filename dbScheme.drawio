@@ -1,0 +1,33 @@
+<mxfile host="65bd71144e">
+    <diagram id="HxVIGzLFmP5F2GuHWUka" name="Page-1">
+        <mxGraphModel dx="2026" dy="860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" style="html=1;" parent="1" source="2" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Beers&lt;br&gt;&lt;br&gt;_id:&lt;br&gt;name:&lt;br&gt;style:&lt;br&gt;abv:&lt;br&gt;brewery: FKEY&lt;br&gt;description&lt;br&gt;reviews: FKEY" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="160" width="110" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" style="edgeStyle=none;html=1;" parent="1" source="4" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="274" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="Brewery&lt;br&gt;&lt;br&gt;_id:&lt;br&gt;founded:&lt;br&gt;location:&lt;br&gt;description:&lt;br&gt;website:&lt;br&gt;lat:&lt;br&gt;lon:&lt;br&gt;Beers: FKEY" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="707" width="120" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Reviews&lt;br&gt;&lt;br&gt;_id:&lt;br&gt;rating:&lt;br&gt;review:&lt;br&gt;beer: FKEY&lt;br&gt;user: FKEY" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="340" width="90" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="User&lt;br&gt;&lt;br&gt;username:&lt;br&gt;password:&lt;br&gt;firstName:&lt;br&gt;lastName:&lt;br&gt;reviews: F Key&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="480" width="120" height="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
