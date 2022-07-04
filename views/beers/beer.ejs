@@ -33,7 +33,7 @@
       <% for( let review of beer.reviews ) { %>
         <div class="card col-6 beer-review" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title"><%= review.rating %>/5</h5>
+            <p class="starability-result" data-rating="<%= review.rating %>"></p>
             <p class="card-text"><%= review.review %></p>
             <p class="card-text"><%= review.user  %> </p>
             <% if (currentUser && review.user.equals(currentUser._id)) {%> 
@@ -51,16 +51,28 @@
   <% if (currentUser) { %>
     <h2>Leave a review</h2>
     <form action="/beers/<%= beer._id %>/reviews" method="POST">
-      <div class="rating"><fieldset>
-        <span class="star-cb-group">
-          <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
-          <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
-          <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
-          <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
-          <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
-          <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
-        </span>
-      </fieldset></div>
+      <div class="rating">
+        <fieldset class="starability-basic">
+          <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+    
+          <input type="radio" id="rate1" name="rating" value="1" />
+          <label for="rate1">1 star.</label>
+    
+          <input type="radio" id="rate2" name="rating" value="2" />
+          <label for="rate2">2 stars.</label>
+    
+          <input type="radio" id="rate3" name="rating" value="3" />
+          <label for="rate3">3 stars.</label>
+    
+          <input type="radio" id="rate4" name="rating" value="4" />
+          <label for="rate4">4 stars.</label>
+    
+          <input type="radio" id="rate5" name="rating" value="5" />
+          <label for="rate5">5 stars.</label>
+    
+          <span class="starability-focus-ring"></span>
+        </fieldset>
+    </div>
       <div class="form-item textarea-item-beer-review col-6">
         <textarea name="review" id="review" cols="50" rows="150" onInput="this.parentNode.dataset.replicatedValue = this.value" required></textarea>
         <label class="form-label" for="review"><span class="form-item-name">Review</span></label>

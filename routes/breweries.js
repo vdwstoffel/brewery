@@ -22,14 +22,13 @@ const validateAddBrewery = (req, res, next) => {
 //routes
 router.get("/breweries", wrapAsync(breweriesController.getAllBreweries));
 
-router.get("/breweries/add", isLoggedIn, breweriesController.getAddBrewery);
-
-router.post(
-  "/breweries/add",
-  isLoggedIn,
-  validateAddBrewery,
-  wrapAsync(breweriesController.postAddBrewery)
-);
+router.route("/breweries/add")
+  .get(isLoggedIn, breweriesController.getAddBrewery)
+  .post(
+    isLoggedIn,
+    validateAddBrewery,
+    wrapAsync(breweriesController.postAddBrewery)
+  );
 
 router.get("/breweries/:id", wrapAsync(breweriesController.getBrewery));
 
