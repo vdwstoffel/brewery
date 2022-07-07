@@ -32,7 +32,7 @@ a {
   margin: 1em auto;
 }
 
-@media (max-width:375px) {
+@media (max-width: 375px) {
   .alert {
     width: 100%;
     margin: 1em auto;
@@ -54,8 +54,6 @@ a {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-
-
 /* BREWERY PAGE */
 .brewery-logo {
   margin: 1em;
@@ -73,13 +71,10 @@ a {
   justify-content: center;
 }
 
-.brewery-location  {
+.brewery-location {
   display: flex;
   justify-content: center;
-}
-
-.brewery-location img {
-  height: 400px;
+  align-items: center;
 }
 
 .edit-delete-buttons {
@@ -109,7 +104,12 @@ a {
   padding-bottom: 1em;
 }
 
-
+#map {
+  display: flex;
+  width: 100%;
+  height: 32em;
+  margin: 1em 0;
+}
 
 /* ADD/EDIT BREWERY */
 .form-brewery {
@@ -155,7 +155,6 @@ a {
   bottom: -1px;
   transform: translateX(-100%);
   transition: all 0.3s ease;
-  
 }
 
 .form-item-name {
@@ -180,7 +179,6 @@ a {
   transform: translateY(-150%);
   font-size: 14px;
   color: var(--form-text);
-  
 }
 
 .form-item input:focus + label::after,
@@ -223,7 +221,6 @@ a {
   margin: 0 0.5em;
 }
 
-
 .beer-name {
   color: var(--bname-text);
   font-weight: 600;
@@ -241,7 +238,7 @@ a {
 .beer-info {
   margin: 2em auto;
   text-align: center;
-} 
+}
 
 .beer-details {
   text-align: left;
@@ -263,7 +260,7 @@ a {
   border: none;
   margin: 0.5em;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-} 
+}
 
 .card-body {
   display: flex;
@@ -287,7 +284,7 @@ a {
   margin: 3em auto;
 }
 
-@media (max-width:375px) {
+@media (max-width: 375px) {
   .login-form {
     width: 100%;
     margin: 3em auto;

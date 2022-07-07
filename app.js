@@ -100,7 +100,7 @@ app.use((err, req, res, next) => {
 });
 
 //Running Server
-let port = process.env.PORT;
+let port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

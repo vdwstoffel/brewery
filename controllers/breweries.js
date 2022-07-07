@@ -1,7 +1,9 @@
 "use strict";
 
 const Brewery = require("../models/breweryModel");
-
+const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 module.exports.getAllBreweries = async (req, res, next) => {
   const breweries = await Brewery.find({}).sort("name");
   res.render("breweries/index", { breweries, title: "Breweries" });
@@ -12,12 +14,21 @@ module.exports.getAddBrewery = (req, res) => {
 };
 
 module.exports.postAddBrewery = async (req, res, next) => {
-  const { name, founded, city, country, description, logo_path, website } =
+  const { name, founded, address, country, description, logo_path, website } =
     req.body;
+
+  const geoData = await geocoder
+    .forwardGeocode({
+      query: address,
+      limit: 1,
+    })
+    .send();
+
   const newBrewery = await Brewery.create({
     name: name,
     founded: founded,
-    city: city,
+    address: address,
+    location: geoData.body.features[0].geometry,
     country: country,
     description: description,
     logo_path: logo_path,
@@ -48,16 +59,24 @@ module.exports.getEditBreweries = async (req, res, next) => {
   res.render("breweries/editBrewery", { brewery, title: "Edit brewery" });
 };
 
-module.exports.putEditbreweries = (req, res) => {
+module.exports.putEditbreweries = async (req, res) => {
   const { id } = req.params;
-  const { name, founded, city, country, description, logo_path, website } =
-    req.body;
+  const { name, founded, address, country, description, logo_path, website } = req.body;
+
+  const geoData = await geocoder
+    .forwardGeocode({
+      query: address,
+      limit: 1,
+    })
+    .send();
+
   Brewery.findByIdAndUpdate(
     id,
     {
       name: name,
       founded: founded,
-      city: city,
+      address: address,
+      location: geoData.body.features[0].geometry,
       country: country,
       description: description,
       logo_path: logo_path,

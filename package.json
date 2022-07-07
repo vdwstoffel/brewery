@@ -9,6 +9,7 @@
   "author": "Christoff van der Walt",
   "license": "ISC",
   "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.13.4",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.1",
