@@ -4,11 +4,11 @@
   <div class="brewery-info col-lg-6 col-md-12">
     <h1><%= brewery.name %></h1>
     <h3 class="year-found">Founded: <%= brewery.founded %></h3>
-    <h3>Location: <%= brewery.address %>, <%= brewery.country %></h3>
+    <h3>Address: <%= brewery.address %>, <%= brewery.country %></h3>
     <p><%= brewery.description %></p>
     <a href="<%= brewery.website %>">Visit website</a>
   </div>
-  <div class="brewery-location col-lg-6 col-md-12">
+  <div class="brewery-geometry col-lg-6 col-md-12">
     <div id="map"></div>
        
   </div>
@@ -45,6 +45,6 @@
 
 <script>
   const mapBoxToken = '<%- process.env.MAPBOX_TOKEN %>'
-  const breweryLocation = <%- brewery.location %> // This works but vscode will give an error
+  const breweryGeometry = <%- brewery.geometry %> // This works but vscode will give an error
 </script>
 <script src="/js/breweryMapBox.js"></script>

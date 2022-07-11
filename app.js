@@ -18,6 +18,7 @@ const reviewRoutes = require("./routes/reviews");
 const apiRoutes = require("./routes/api");
 const userRoutes = require("./routes/users");
 const User = require("./models/userModels");
+const breweryModel = require("./models/breweryModel")
 
 const app = express();
 app.engine("ejs", engine);
@@ -78,9 +79,9 @@ mongoose
   });
 
 //Routes
-app.get("/", (req, res) => {
-  console.log(req.user);
-  res.render("index", { title: "Home" });
+app.get("/", async (req, res) => {
+  const breweries = await breweryModel.find({}).exec()
+  res.render("index", { title: "Home", breweries });
 });
 
 app.use("/", breweriesRoutes);

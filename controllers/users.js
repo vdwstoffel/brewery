@@ -30,7 +30,7 @@ module.exports.getLogin = (req, res) => {
 
 module.exports.postLogin = 
   (req, res) => {
-    req.flash("success", "Logged in");
+    req.flash("success", `Hi ${req.user.username}`);
     //check if the user was on a previous page before log in otherwise go to home
     const redirectUrl = req.session.returnTo || "/";
     res.redirect(redirectUrl);

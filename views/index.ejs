@@ -1,7 +1,11 @@
 <% layout("layout/boilerplate") %> 
-<%- include("./partials/flash") %> 
-<h1 class="main-heading">Future Home Page</h1>
-<% if (currentUser) { %>
-    <h4>Hi <%= currentUser.username %>!</h4>
-<% } %>
+<div id="clusterMap"></div>
+<%- include("./partials/flash") %>
+<h1 clas="main-heading">Welcome to the World of beer</h1>
 
+
+<script>
+    const mapBoxToken = '<%- process.env.MAPBOX_TOKEN %>';
+    const breweries = { features: <%- JSON.stringify(breweries) %>};
+  </script>
+  <script src="/js/clusterMap.js"></script>
